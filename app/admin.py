@@ -426,7 +426,7 @@ with st.container(border=True):
     with adm_settings:
         st.markdown("#### ⚙️ Settings & Deployment")
 
-        if current_branch == "develop":
+        if current_branch == "develop" or is_staging:
             st.divider()
             st.markdown("**🚀 Deploy to Production**")
             st.caption("Merge changes from staging (develop) to production (main)")
