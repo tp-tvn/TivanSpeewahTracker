@@ -281,7 +281,11 @@ logo_path   = Path(__file__).parent / "logo.png"
 app_title   = db.get_setting("app_title",    "Tivan Dashboard")
 app_subtitle = db.get_setting("app_subtitle", "Tivan Tracking Tool · Tivan Limited")
 
-hdr_brand, hdr_theme, hdr_right = st.columns([8, 1, 1])
+if current_branch == "develop" or is_staging:
+    hdr_brand, hdr_deploy, hdr_theme, hdr_right = st.columns([6, 1.5, 1, 1])
+else:
+    hdr_brand, hdr_theme, hdr_right = st.columns([8, 1, 1])
+
 with hdr_brand:
     if logo_path.exists():
         import base64
@@ -297,6 +301,41 @@ with hdr_brand:
     else:
         st.markdown(f"## {app_title}")
         st.caption(app_subtitle)
+
+if current_branch == "develop" or is_staging:
+    with hdr_deploy:
+        st.write("")
+        try:
+            git_status = subprocess.check_output(['git', 'status', '--porcelain'],
+                                                 cwd='app', stderr=subprocess.DEVNULL).decode().strip()
+            commits_ahead = subprocess.check_output(['git', 'log', '--oneline', 'develop..main', '-n', '1'],
+                                                   cwd='app', stderr=subprocess.DEVNULL).decode().strip()
+
+            has_changes = bool(git_status)
+            has_commits = bool(commits_ahead)
+
+            if st.button(
+                "🚀 DEPLOY" if not has_changes and has_commits else "⚠️ DEPLOY",
+                use_container_width=True,
+                type="primary" if (has_commits and not has_changes) else "secondary",
+                help="Push changes to production (develop → main)"
+            ):
+                try:
+                    subprocess.run(['git', 'add', '-A'], cwd='app', check=True, capture_output=True)
+                    git_status_check = subprocess.check_output(['git', 'status', '--porcelain'],
+                                                              cwd='app').decode().strip()
+                    if git_status_check:
+                        subprocess.run(['git', 'commit', '-m', 'Staging deployment - auto-commit'],
+                                     cwd='app', check=True, capture_output=True)
+                    subprocess.run(['git', 'push', 'origin', 'develop:main'],
+                                 cwd='app', check=True, capture_output=True)
+                    st.success("✅ Deployed to production!")
+                    st.balloons()
+                except subprocess.CalledProcessError as e:
+                    st.error(f"❌ Deployment failed: {e}")
+        except subprocess.CalledProcessError:
+            st.write("")
+
 with hdr_theme:
     st.write("")
     st.session_state.dark_mode = st.toggle(
