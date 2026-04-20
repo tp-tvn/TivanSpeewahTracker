@@ -4398,10 +4398,12 @@ with tab_ew_import:
 st.divider()
 from datetime import datetime
 from pathlib import Path as PathlibPath
+import time
 app_file = PathlibPath(__file__)
 mod_time = datetime.fromtimestamp(app_file.stat().st_mtime)
+tz_name = time.tzname[0]
 st.markdown(f"""
 <div style="text-align: center; padding: 1rem 0; color: #666; font-size: 0.85rem;">
-  <strong>Tivan Speewah Tracker</strong> | Last deployed: {mod_time.strftime('%Y-%m-%d %H:%M:%S UTC')}
+  <strong>Tivan Speewah Tracker</strong> | Last deployed: {mod_time.strftime('%Y-%m-%d %H:%M:%S')} {tz_name}
 </div>
 """, unsafe_allow_html=True)
