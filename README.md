@@ -63,3 +63,19 @@ drill-tracker/
 ## Support
 
 For issues, contact your system administrator.
+
+## Development & Staging
+
+### Two Environments
+- **Production**: https://tivanspeewahtracker.streamlit.app/ (main branch, users use this)
+- **Staging**: https://tivanspeewahtracker-developer.streamlit.app/ (develop branch, test here first)
+
+### Development Workflow
+1. Create a branch from `develop` or work directly on `develop`
+2. Make changes and test locally: `python -m streamlit run app/app.py`
+3. Commit: `git add . && git commit -m "description"`
+4. Push to develop: `git push origin develop`
+5. Wait 30-60 seconds for Streamlit Cloud to deploy to staging
+6. Test thoroughly at staging URL
+7. When ready for production: `git push origin develop:main`
+8. Wait 30-60 seconds for production deployment
