@@ -43,7 +43,7 @@ rig_opts  = {"All rigs": None} | {r["short_name"]: r["id"] for r in rigs}
 if "admin_authenticated" not in st.session_state:
     st.session_state.admin_authenticated = False
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = True
+    st.session_state.dark_mode = False
 
 # ---------------------------------------------------------------------------
 # Dark mode CSS injection (applied every rerun when enabled)
@@ -271,9 +271,9 @@ with hdr_brand:
         st.caption(app_subtitle)
 with hdr_theme:
     st.write("")
-    st.toggle(
+    st.session_state.dark_mode = st.toggle(
         "🌙" if st.session_state.dark_mode else "☀️",
-        key="dark_mode",
+        value=st.session_state.dark_mode,
         help="Toggle dark / light mode",
     )
 with hdr_right:
@@ -4394,3 +4394,14 @@ with tab_ew_import:
         if st.button("Clear Historical Earthworks Data", type="secondary", key="ew_clear_hist"):
             db.delete_ew_historical()
             st.success("Historical earthworks data cleared.")
+
+st.divider()
+from datetime import datetime
+from pathlib import Path as PathlibPath
+app_file = PathlibPath(__file__)
+mod_time = datetime.fromtimestamp(app_file.stat().st_mtime)
+st.markdown(f"""
+<div style="text-align: center; padding: 1rem 0; color: #666; font-size: 0.85rem;">
+  <strong>Tivan Speewah Tracker</strong> | Last deployed: {mod_time.strftime('%Y-%m-%d %H:%M:%S UTC')}
+</div>
+""", unsafe_allow_html=True)

@@ -33,7 +33,7 @@ st.markdown("""
 db.init_db()
 
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = True
+    st.session_state.dark_mode = False
 
 # ---------------------------------------------------------------------------
 # Dark mode CSS injection (applied every rerun when enabled)
@@ -234,9 +234,9 @@ with hdr_brand:
         st.caption("Admin Panel (Pre-Authenticated)")
 with hdr_theme:
     st.write("")
-    st.toggle(
+    st.session_state.dark_mode = st.toggle(
         "🌙" if st.session_state.dark_mode else "☀️",
-        key="dark_mode",
+        value=st.session_state.dark_mode,
         help="Toggle dark / light mode",
     )
 
