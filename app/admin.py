@@ -307,7 +307,8 @@ with st.container(border=True):
                 if st.button("Import Drillhole Data", key="adm_import_drillholes"):
                     uploaded_file.seek(0)
                     imported = db.import_drillholes_csv(uploaded_file)
-                    st.success(f"✅ Imported {imported} drillhole records")
+                    db.export_drillholes_csv()
+                    st.success(f"✅ Imported {imported} drillhole records (backed up to CSV)")
                     st.rerun()
             except Exception as e:
                 st.error(f"Error reading CSV: {e}")

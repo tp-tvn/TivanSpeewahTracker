@@ -132,12 +132,17 @@ def init_db():
 
     # If no rates exist (fresh database or reset), restore from CSV backups
     rate_count = c.execute("SELECT COUNT(*) FROM rates").fetchone()[0]
+    drillhole_count = c.execute("SELECT COUNT(*) FROM drillholes").fetchone()[0]
     if rate_count == 0:
         conn.close()
         import_rates_csv()
         import_budget_targets_csv()
     else:
         conn.close()
+
+    # Restore drillholes if empty
+    if drillhole_count == 0:
+        import_drillholes_csv_from_file()
 
 
 def _migrate(conn):
@@ -3253,3 +3258,89 @@ def get_drillholes():
     with get_conn() as conn:
         rows = conn.execute("SELECT * FROM drillholes ORDER BY hole_number").fetchall()
     return [dict(r) for r in rows]
+
+
+def export_drillholes_csv(csv_path=None):
+    """Export all drillholes to CSV for version control backup."""
+    if csv_path is None:
+        csv_path = Path(__file__).parent.parent / "config" / "drillholes.csv"
+
+    with get_conn() as conn:
+        rows = conn.execute("""
+            SELECT * FROM drillholes ORDER BY hole_number
+        """).fetchall()
+
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    if rows:
+        import csv
+        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=[k for k in rows[0].keys()])
+            writer.writeheader()
+            for row in rows:
+                writer.writerow(dict(row))
+        return len(rows)
+    return 0
+
+
+def import_drillholes_csv_from_file(csv_path=None):
+    """Import drillholes from CSV backup file on startup."""
+    if csv_path is None:
+        csv_path = Path(__file__).parent.parent / "config" / "drillholes.csv"
+
+    if not csv_path.exists():
+        return 0
+
+    import csv
+    with get_conn() as conn:
+        inserted = 0
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                try:
+                    hole_number = row.get('hole_number', '').strip()
+                    if not hole_number:
+                        continue
+
+                    conn.execute("""
+                        INSERT INTO drillholes (
+                            hole_number, hole_id_actual, rig_id, hole_status, hole_tracker_status,
+                            azimuth_tn, dip, target_depth, actual_depth, purpose, drill_type,
+                            coord_easting, coord_northing, coord_rl, coord_grid, coord_survey_method,
+                            water_table_depth, rehab_completed, prospect, drill_priority, comment,
+                            tenement, pad_id_link, new_hole_existing_pad, drilling_started, drilling_completed
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ON CONFLICT(hole_number) DO UPDATE SET
+                            hole_id_actual=excluded.hole_id_actual, hole_status=excluded.hole_status
+                    """, (
+                        hole_number,
+                        row.get('hole_id_actual') or None,
+                        row.get('rig_id') or None,
+                        row.get('hole_status') or None,
+                        row.get('hole_tracker_status') or None,
+                        float(row.get('azimuth_tn', 0) or 0),
+                        float(row.get('dip', 0) or 0),
+                        float(row.get('target_depth', 0) or 0),
+                        float(row.get('actual_depth', 0) or 0),
+                        row.get('purpose') or None,
+                        row.get('drill_type') or None,
+                        float(row.get('coord_easting', 0) or 0),
+                        float(row.get('coord_northing', 0) or 0),
+                        float(row.get('coord_rl', 0) or 0),
+                        row.get('coord_grid') or None,
+                        row.get('coord_survey_method') or None,
+                        float(row.get('water_table_depth') or 0) if row.get('water_table_depth') else None,
+                        row.get('rehab_completed') or None,
+                        row.get('prospect') or None,
+                        row.get('drill_priority') or None,
+                        row.get('comment') or None,
+                        row.get('tenement') or None,
+                        row.get('pad_id_link') or None,
+                        row.get('new_hole_existing_pad') or None,
+                        row.get('drilling_started') or None,
+                        row.get('drilling_completed') or None,
+                    ))
+                    inserted += 1
+                except Exception as e:
+                    continue
+        conn.commit()
+    return inserted
