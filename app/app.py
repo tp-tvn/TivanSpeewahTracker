@@ -4399,6 +4399,7 @@ st.divider()
 from datetime import datetime
 from pathlib import Path as PathlibPath
 import time
+import os
 app_file = PathlibPath(__file__)
 mod_time = datetime.fromtimestamp(app_file.stat().st_mtime)
 tz_name = time.tzname[0]
