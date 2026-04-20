@@ -45,12 +45,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-import subprocess
+import os
+is_staging = "developer" in os.environ.get("STREAMLIT_SERVER_HEADLESS", "") or \
+             "developer" in os.getcwd().lower() or \
+             "tivanspeewahtracker-developer" in os.getcwd().lower()
 try:
+    import subprocess
     current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
                                            cwd='app', stderr=subprocess.DEVNULL).decode().strip()
 except:
-    current_branch = "unknown"
+    current_branch = "develop" if is_staging else "main"
 
 if current_branch == "develop":
     st.markdown("""
@@ -65,7 +69,7 @@ rigs      = db.get_rigs()
 rig_opts  = {"All rigs": None} | {r["short_name"]: r["id"] for r in rigs}
 
 if "admin_authenticated" not in st.session_state:
-    st.session_state.admin_authenticated = (current_branch == "develop")
+    st.session_state.admin_authenticated = (current_branch == "develop" or is_staging)
 if "dark_mode" not in st.session_state:
     st.session_state.dark_mode = False
 
