@@ -236,6 +236,37 @@ def _migrate(conn):
         )
     """)
     conn.execute("""
+        CREATE TABLE IF NOT EXISTS drillholes (
+            hole_number TEXT PRIMARY KEY,
+            hole_id_actual TEXT,
+            rig_id TEXT,
+            hole_status TEXT,
+            hole_tracker_status TEXT,
+            azimuth_tn REAL,
+            dip REAL,
+            target_depth REAL,
+            actual_depth REAL,
+            purpose TEXT,
+            drill_type TEXT,
+            coord_easting REAL,
+            coord_northing REAL,
+            coord_rl REAL,
+            coord_grid TEXT,
+            coord_survey_method TEXT,
+            water_table_depth REAL,
+            rehab_completed TEXT,
+            prospect TEXT,
+            drill_priority TEXT,
+            comment TEXT,
+            tenement TEXT,
+            pad_id_link TEXT,
+            new_hole_existing_pad TEXT,
+            drilling_started TEXT,
+            drilling_completed TEXT,
+            imported_at TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+    conn.execute("""
         CREATE TABLE IF NOT EXISTS ignored_rate_combinations (
             drill_type TEXT NOT NULL,
             hole_type  TEXT NOT NULL,
@@ -3147,3 +3178,78 @@ def import_budget_targets_csv(csv_path=None):
                 updated += 1
         conn.commit()
     return updated
+
+
+def import_drillholes_csv(csv_data):
+    """Import drillhole information from CSV data (file-like object or bytes)."""
+    import csv
+    import io
+
+    if isinstance(csv_data, bytes):
+        csv_data = io.StringIO(csv_data.decode('utf-8'))
+    elif hasattr(csv_data, 'read') and not hasattr(csv_data, 'seek'):
+        csv_data = io.StringIO(csv_data.read().decode('utf-8'))
+
+    with get_conn() as conn:
+        inserted = 0
+        updated = 0
+        reader = csv.DictReader(csv_data)
+        for row in reader:
+            try:
+                hole_number = row.get('Hole number', '').strip()
+                if not hole_number:
+                    continue
+
+                conn.execute("""
+                    INSERT INTO drillholes (
+                        hole_number, hole_id_actual, rig_id, hole_status, hole_tracker_status,
+                        azimuth_tn, dip, target_depth, actual_depth, purpose, drill_type,
+                        coord_easting, coord_northing, coord_rl, coord_grid, coord_survey_method,
+                        water_table_depth, rehab_completed, prospect, drill_priority, comment,
+                        tenement, pad_id_link, new_hole_existing_pad, drilling_started, drilling_completed
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(hole_number) DO UPDATE SET
+                        hole_id_actual=excluded.hole_id_actual, hole_status=excluded.hole_status,
+                        azimuth_tn=excluded.azimuth_tn, dip=excluded.dip, target_depth=excluded.target_depth,
+                        actual_depth=excluded.actual_depth, purpose=excluded.purpose, drill_type=excluded.drill_type,
+                        coord_easting=excluded.coord_easting, coord_northing=excluded.coord_northing
+                """, (
+                    hole_number,
+                    row.get('Hole ID (actual)', '').strip() or None,
+                    row.get('RigID', '').strip() or None,
+                    row.get('Hole status', '').strip() or None,
+                    row.get('Hole Tracker Status', '').strip() or None,
+                    float(row.get('Azimuth (TN)', 0) or 0),
+                    float(row.get('Dip', 0) or 0),
+                    float(row.get('Target depth', 0) or 0),
+                    float(row.get('Actual depth', 0) or 0),
+                    row.get('Purpose', '').strip() or None,
+                    row.get('Drill Type', '').strip() or None,
+                    float(row.get('Coordinates.Easting', 0) or 0),
+                    float(row.get('Coordinates.Northing', 0) or 0),
+                    float(row.get('Coordinates.RL', 0) or 0),
+                    row.get('Coordinates.Grid', '').strip() or None,
+                    row.get('Coordinates.Survey_Method', '').strip() or None,
+                    float(row.get('Water Table depth (m)', 0) or 0) if row.get('Water Table depth (m)') else None,
+                    row.get('Rehab Completed', '').strip() or None,
+                    row.get('Prospect', '').strip() or None,
+                    row.get('DrillPriority', '').strip() or None,
+                    row.get('Comment', '').strip() or None,
+                    row.get('Tenement(Auto)', '').strip() or None,
+                    row.get('PadID_Link', '').strip() or None,
+                    row.get('New_Hole_Existing_Pad', '').strip() or None,
+                    row.get('Drilling Started', '').strip() or None,
+                    row.get('Drilling Completed', '').strip() or None,
+                ))
+                inserted += 1
+            except Exception as e:
+                continue
+        conn.commit()
+    return inserted
+
+
+def get_drillholes():
+    """Return all drillhole records."""
+    with get_conn() as conn:
+        rows = conn.execute("SELECT * FROM drillholes ORDER BY hole_number").fetchall()
+    return [dict(r) for r in rows]

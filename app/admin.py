@@ -248,7 +248,7 @@ st.divider()
 with st.container(border=True):
     st.markdown("#### ⚙️ Admin Panel")
     adm_purposes, adm_rates, adm_budget, adm_rigs, adm_branding, adm_settings, adm_delete, adm_ew_rates, adm_corrections, adm_feedback, adm_weather = st.tabs([
-        "Holes & Purposes",
+        "Drillhole Information",
         "Rates",
         "Budget",
         "Rigs",
@@ -261,241 +261,41 @@ with st.container(border=True):
         "Weather"
     ])
 
-    # ── Holes & Purposes ────────────────────────────────────────
+    # ── Drillhole Information ──────────────────────────────────────
     with adm_purposes:
-        st.markdown("**Import Hole Purposes**")
-        st.caption("Upload a CSV with columns: hole_name, purpose, hole_type")
-        up_file = st.file_uploader("Choose CSV file", type="csv", key="adm_purpose_upload")
-        if up_file:
+        st.markdown("#### 🔍 Drillhole Information")
+        st.caption("Import comprehensive drillhole data from CSV")
+
+        st.markdown("**Import Drillhole Data**")
+        st.caption("Upload CSV with columns: Hole number, Hole ID (actual), Hole status, Azimuth (TN), Dip, Target depth, Actual depth, Purpose, Drill Type, Coordinates.Easting, Coordinates.Northing, etc.")
+
+        uploaded_file = st.file_uploader("Choose drillhole CSV file", type="csv", key="adm_drillhole_upload")
+        if uploaded_file:
             try:
-                df = pd.read_csv(up_file)
-                st.dataframe(df, use_container_width=True)
-                if st.button("Import Hole Purposes", key="adm_do_import_purposes"):
-                    mapping = {}
-                    for _, row in df.iterrows():
-                        hole_name = row.get("hole_name")
-                        purpose = row.get("purpose")
-                        hole_type = row.get("hole_type")
-                        if hole_name:
-                            mapping[hole_name] = {
-                                "purpose": purpose,
-                                "hole_type": hole_type
-                            }
-                    if mapping:
-                        db.set_hole_purposes(mapping)
-                        st.success(f"✅ Imported {len(mapping)} hole purposes")
-                        st.rerun()
+                df_preview = pd.read_csv(uploaded_file)
+                st.dataframe(df_preview, use_container_width=True)
+                st.info(f"Preview: {len(df_preview)} drillholes found")
+
+                if st.button("Import Drillhole Data", key="adm_import_drillholes"):
+                    uploaded_file.seek(0)
+                    imported = db.import_drillholes_csv(uploaded_file)
+                    st.success(f"✅ Imported {imported} drillhole records")
+                    st.rerun()
             except Exception as e:
                 st.error(f"Error reading CSV: {e}")
 
         st.divider()
-        st.markdown("**⚠️ Audit: Holes Without Assigned Purpose**")
-        st.caption("These holes have been drilled but don't have a purpose assigned. Assign purposes to account for all drilling in your budget.")
+        st.markdown("**Current Drillhole Records**")
 
-        unassigned_holes = db.get_holes_without_purpose()
-        if unassigned_holes:
-            ua_df = pd.DataFrame(unassigned_holes)
-            st.warning(f"🔴 **{len(ua_df)} holes without purpose assignment**")
-
-            # Display unassigned holes with quick assignment
-            st.subheader("Quick Assign Purposes & Variance Commentary")
-            _PURPOSES_LIST = ["", "Geotech", "Resource Definition", "Program"]
-            _VARIANCE_REASONS = [
-                "",
-                "Hole ended due to safety reasons",
-                "Hole was extended",
-                "Geological conditions encountered",
-                "Reached target depth early",
-                "Hit water/aquifer",
-                "Equipment failure/downtime",
-                "Ore contact found",
-                "Structural issue encountered",
-                "Sample collection completed",
-                "Different hole type required",
-                "Hole abandoned",
-                "Geotechnical testing required extension",
-                "Other",
-            ]
-
-            ua_edit_df = ua_df[["hole_name", "status", "planned_m", "actual_m", "variance_m", "drill_hours", "rig", "interval_type", "hole_type"]].copy()
-            ua_edit_df["Purpose"] = ""
-            ua_edit_df["Variance Reason"] = ""
-            ua_edit_df = ua_edit_df[["hole_name", "hole_type", "status", "planned_m", "actual_m", "variance_m", "Purpose", "Variance Reason", "drill_hours", "rig", "interval_type"]]
-
-            ua_edited = st.data_editor(
-                ua_edit_df,
-                column_config={
-                    "hole_name":      st.column_config.TextColumn("Hole", disabled=True),
-                    "hole_type":      st.column_config.TextColumn("Hole Type", help="Auto-extracted from hole name. Edit if incorrect (e.g., DDRD, RCRD, ROP, etc)"),
-                    "status":         st.column_config.TextColumn("Status", disabled=True, help="In Progress = drilling in last 2 days, Completed = no drilling for 2+ days"),
-                    "planned_m":      st.column_config.NumberColumn("Planned (m)", disabled=True, format="%.1f"),
-                    "actual_m":       st.column_config.NumberColumn("Actual (m)", disabled=True, format="%.1f"),
-                    "variance_m":     st.column_config.NumberColumn("Variance (m)", disabled=True, format="%.1f"),
-                    "Purpose":        st.column_config.SelectboxColumn("Purpose", options=_PURPOSES_LIST, required=True),
-                    "Variance Reason": st.column_config.SelectboxColumn("Variance Reason", options=_VARIANCE_REASONS, required=False),
-                    "drill_hours":    st.column_config.NumberColumn("Hours", disabled=True, format="%.1f"),
-                    "rig":            st.column_config.TextColumn("Rig", disabled=True),
-                    "interval_type":  st.column_config.TextColumn("Type", disabled=True),
-                },
-                hide_index=True,
-                use_container_width=True,
-                key="adm_unassigned_holes_editor",
-                height=max(400, len(ua_edit_df) * 35 + 50),
-            )
-
-            if st.button("Assign Purposes to Unassigned Holes", key="adm_assign_unassigned"):
-                new_purposes = {}
-                for _, row in ua_edited.iterrows():
-                    if row["Purpose"]:  # Only save if purpose is assigned
-                        new_purposes[row["hole_name"]] = {
-                            "purpose": row["Purpose"],
-                            "hole_type": row["hole_type"] if row["hole_type"] else None
-                        }
-
-                if new_purposes:
-                    db.set_hole_purposes(new_purposes)
-                    st.success(f"✅ Assigned purposes and hole types to {len(new_purposes)} holes. Audit cleared!")
-                    st.rerun()
-                else:
-                    st.warning("Please assign at least one purpose before saving.")
+        drillholes = db.get_drillholes()
+        if drillholes:
+            dh_df = pd.DataFrame(drillholes)
+            display_cols = ['hole_number', 'hole_id_actual', 'hole_status', 'azimuth_tn', 'dip',
+                          'target_depth', 'actual_depth', 'purpose', 'drill_type', 'prospect', 'pad_id_link']
+            available_cols = [c for c in display_cols if c in dh_df.columns]
+            st.dataframe(dh_df[available_cols], use_container_width=True, hide_index=True)
         else:
-            st.success("✅ All drilled holes have purposes assigned!")
-
-        st.divider()
-        st.markdown("**Current assignments** — edit inline or via CSV import.")
-
-        # Export/Import section
-        exp_imp_col1, exp_imp_col2 = st.columns(2)
-
-        with exp_imp_col1:
-            st.subheader("📥 Export to CSV")
-            all_holes = db.get_unique_holes()
-            if not all_holes:
-                st.info("No holes found in the database yet. Import PLODs first.")
-            else:
-                hp_all = db.get_hole_purposes()
-
-                # Get hole_type from the hole_purposes table
-                conn = db.get_conn()
-                hole_type_map = {}
-                for row in conn.execute("SELECT hole_name, hole_type FROM hole_purposes WHERE hole_type IS NOT NULL").fetchall():
-                    hole_type_map[row["hole_name"]] = row["hole_type"]
-                conn.close()
-
-                export_df = pd.DataFrame({
-                    "Hole": all_holes,
-                    "Purpose": [hp_all.get(h) or "" for h in all_holes],
-                    "Hole Type": [hole_type_map.get(h) or "" for h in all_holes],
-                })
-
-                csv_data = export_df.to_csv(index=False)
-                st.download_button(
-                    label="⬇️ Download CSV",
-                    data=csv_data,
-                    file_name="hole_assignments.csv",
-                    mime="text/csv",
-                    key="export_assignments_csv"
-                )
-
-        with exp_imp_col2:
-            st.subheader("📤 Import from CSV")
-            uploaded_csv = st.file_uploader(
-                "Upload hole assignments CSV (Hole, Purpose, Hole Type columns)",
-                type="csv",
-                key="import_assignments_csv"
-            )
-
-            if uploaded_csv:
-                try:
-                    import_df = pd.read_csv(uploaded_csv)
-
-                    # Validate required columns
-                    required_cols = {"Hole", "Purpose"}
-                    if not required_cols.issubset(set(import_df.columns)):
-                        st.error(f"❌ CSV must contain 'Hole' and 'Purpose' columns. Found: {list(import_df.columns)}")
-                    else:
-                        st.success(f"✅ Valid CSV - {len(import_df)} holes found")
-                        st.dataframe(import_df, use_container_width=True, hide_index=True)
-
-                        if st.button("Apply Imported Assignments", key="apply_import_assignments"):
-                            import_mapping = {}
-                            for _, row in import_df.iterrows():
-                                hole = row.get("Hole")
-                                purpose = row.get("Purpose") or None
-                                hole_type = row.get("Hole Type") or None
-
-                                if hole:
-                                    import_mapping[hole] = {
-                                        "purpose": purpose,
-                                        "hole_type": hole_type
-                                    }
-
-                            if import_mapping:
-                                db.set_hole_purposes(import_mapping)
-                                st.success(f"✅ Imported and saved {len(import_mapping)} hole assignments!")
-                                st.rerun()
-                            else:
-                                st.warning("No valid holes to import.")
-
-                except Exception as e:
-                    st.error(f"❌ Could not read CSV: {e}")
-
-        st.divider()
-        st.markdown("**Or edit inline and save:**")
-        all_holes = db.get_unique_holes()
-        if not all_holes:
-            st.info("No holes found in the database yet. Import PLODs first.")
-        else:
-            _PURPOSES_LIST = ["", "Geotech", "Resource Definition", "Program"]
-            hp_all = db.get_hole_purposes()
-            all_holes_df = pd.DataFrame({
-                "Hole":    all_holes,
-                "Purpose": [hp_all.get(h) or "" for h in all_holes],
-            })
-            edited_all = st.data_editor(
-                all_holes_df,
-                column_config={
-                    "Hole":    st.column_config.TextColumn("Hole", disabled=True),
-                    "Purpose": st.column_config.SelectboxColumn(
-                                   "Purpose", options=_PURPOSES_LIST, required=False
-                               ),
-                },
-                hide_index=True,
-                use_container_width=True,
-                key="adm_all_holes_editor",
-            )
-            if st.button("Save", key="adm_save_all_holes"):
-                db.set_hole_purposes(dict(zip(edited_all["Hole"], edited_all["Purpose"])))
-                st.success("Hole purposes saved.")
-                st.rerun()
-
-        st.divider()
-        st.markdown("**Hole Type → Purpose Validation**")
-        st.caption("Review which hole types appear under each purpose. Flag inconsistencies (e.g., RCRD shouldn't appear under 'Sterilisation').")
-
-        ht_purpose_map = db.get_hole_type_purpose_mapping()
-        if ht_purpose_map:
-            # Create a dataframe for better visualization
-            validation_data = []
-            for hole_type in sorted(ht_purpose_map.keys()):
-                purposes = ht_purpose_map[hole_type]
-                validation_data.append({
-                    "Hole Type": hole_type,
-                    "Purposes": ", ".join(purposes),
-                    "Count": len(purposes),
-                })
-
-            val_df = pd.DataFrame(validation_data)
-            st.dataframe(val_df, use_container_width=True, hide_index=True)
-
-            # Optional: show warnings for hole types appearing under multiple purposes
-            multi_purpose_types = {ht: purposes for ht, purposes in ht_purpose_map.items() if len(purposes) > 1}
-            if multi_purpose_types:
-                st.warning("⚠️ These hole types appear under multiple purposes (may indicate data entry errors):")
-                for ht, purposes in sorted(multi_purpose_types.items()):
-                    st.write(f"**{ht}**: {', '.join(purposes)}")
-        else:
-            st.info("No hole type assignments yet. Assign purposes in the audit section above.")
+            st.info("No drillhole records imported yet. Upload a CSV to get started.")
 
     # Rates Management
     with adm_rates:
