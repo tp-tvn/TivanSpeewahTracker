@@ -25,10 +25,11 @@ st.markdown("""
 <style>
 [data-testid="stSidebar"]        { display: none; }
 [data-testid="collapsedControl"] { display: none; }
+[data-testid="stToolbar"]        { display: none; }
 .block-container {
     padding-left:  1.5rem !important;
     padding-right: 1.5rem !important;
-    padding-top:   1rem   !important;
+    padding-top:   3.5rem !important;
     max-width:     100%   !important;
 }
 </style>
