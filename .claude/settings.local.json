@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pip list)",
+      "Bash(sqlite3 \"H:\\\\My Drive\\\\Claude Projects\\\\Drill Tracker\\\\data\\\\tivan.db\" \".tables\")",
+      "Bash(python3)"
+    ]
+  }
+}

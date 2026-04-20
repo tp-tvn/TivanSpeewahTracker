@@ -1,0 +1,151 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                      TIVAN DASHBOARD — QUICK REFERENCE                     ║
+║                           Print & Keep at Your Desk                        ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+┌─ MAIN DASHBOARD TABS ──────────────────────────────────────────────────────┐
+│                                                                             │
+│ 📊 Budget vs Actual    ← YOUR MAIN GO-TO (check weekly!)                  │
+│ 📅 Gantt Chart         ← Track planned vs actual timeline                 │
+│ 🔍 Data Explorer       ← Search PLODs by hole, purpose, date             │
+│ Import PLOD            ← Upload daily drilling reports                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ UNDERSTANDING BUDGET VS ACTUAL STATUS ────────────────────────────────────┐
+│                                                                             │
+│ 🟢 GREEN     Spending within 10% of budget → Keep monitoring             │
+│ 🟡 YELLOW    Approaching limit (80-90%)    → Alert management            │
+│ 🔴 RED       Over budget or late schedule  → Escalate immediately        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ COMMON CALCULATIONS ──────────────────────────────────────────────────────┐
+│                                                                             │
+│ Actual Cost = Metres Drilled × Budget Rate ($/metre)                      │
+│ Variance (%) = (Actual - Budget) ÷ Budget × 100                           │
+│ Overspend Warning = When Variance > 10%                                   │
+│ Cost/Metre = Total Actual Cost ÷ Total Metres Drilled                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ TROUBLESHOOTING QUICK FIXES ──────────────────────────────────────────────┐
+│                                                                             │
+│ ❌ "Actual Cost shows $0"                                                  │
+│    → Check Admin → 💰 Rate Management for missing budget rates            │
+│                                                                             │
+│ ❌ "Gantt chart is blank"                                                  │
+│    → Confirm Gantt import worked: Admin → Budget → Check table           │
+│    → Hole names must exactly match hole_purposes table                   │
+│                                                                             │
+│ ❌ "PLOD won't import"                                                     │
+│    → Check hole name matches existing holes                              │
+│    → Try Manual Entry if PDF fails                                       │
+│                                                                             │
+│ ❌ "Data looks wrong"                                                      │
+│    → Delete PLOD (Admin → 🗑️) and re-import with correct data           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ ONE-TIME SETUP CHECKLIST ────────────────────────────────────────────────┐
+│                                                                             │
+│ ☐ Step 1: Define drilling purposes (Admin → 🎯 Drillhole Purposes)      │
+│ ☐ Step 2: Set budget rates (Admin → 💰 Rate Management)                 │
+│ ☐ Step 3: Configure rigs (Admin → 🔩 Rigs)                              │
+│ ☐ Step 4: Import Gantt chart (Admin → 📊 Budget Targets)                │
+│ ☐ Step 5: Import first PLOD (Main Dashboard → Import PLOD)             │
+│ ☐ Step 6: Check Budget vs Actual displays data                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ KEY DASHBOARD READINGS ──────────────────────────────────────────────────┐
+│                                                                             │
+│ Actual Metres      = How much has been drilled (should match Planned)     │
+│ Actual Cost        = How much money spent (should not exceed Budget)      │
+│ Budget             = Approved spending amount for this period             │
+│ Variance %         = Difference from budget (negative = good)             │
+│ Cost per Metre     = Efficiency metric (lower = more efficient)           │
+│ Status             = Overall health (Green/Yellow/Red)                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ WEEKLY MONITORING ROUTINE (15 minutes) ───────────────────────────────────┐
+│                                                                             │
+│ 1. Open Dashboard → Click "📊 Budget vs Actual"                           │
+│ 2. Scan Status column for any 🟡 Yellow or 🔴 Red                       │
+│ 3. If RED: Click to see details → Investigate the variance               │
+│ 4. If YELLOW: Note it → Plan to check next week                          │
+│ 5. Click "📅 Gantt Chart" to check schedule health                       │
+│ 6. Look for actual bars starting after planned (late starts)             │
+│ 7. Document any issues in your project notes                             │
+│ 8. Report to stakeholders if needed                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ WHEN TO ESCALATE ────────────────────────────────────────────────────────┐
+│                                                                             │
+│ 🚩 ESCALATE if:                                                            │
+│   • Variance > 10% (over or under budget)                                │
+│   • Schedule delay > 1 week                                              │
+│   • New hole types appear without budget rates                          │
+│   • Cost per metre differs > 20% from estimate                           │
+│   • Dashboard shows errors or missing data                               │
+│                                                                             │
+│ 📞 WHO TO CONTACT:                                                         │
+│   • Budget issues → Project Manager                                      │
+│   • Schedule delays → Drill Site Supervisor                              │
+│   • Technical errors → System Administrator                              │
+│   • Data corrections → Admin user with password                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ ADMIN FEATURES (Password Protected) ──────────────────────────────────────┐
+│                                                                             │
+│ 🎯 Drillhole Purposes     → Define which holes belong to which projects  │
+│ 💰 Rate Management         → Set $/metre cost rates                      │
+│ 📊 Budget Targets          → Import Gantt charts, set budgets            │
+│ 🔩 Rigs                    → Configure drilling equipment                │
+│ 🎨 Branding                → Customize app title and logo               │
+│ 🔧 Settings                → App configuration                          │
+│ 🗑️ Delete PLODs            → Remove incorrect imports                    │
+│ 🚜 EW Rates                → Equipment/weather settings                  │
+│ 🧠 OCR Corrections         → Train PDF extraction                        │
+│ 💬 Feedback                → Send feature requests                       │
+│ 🌦️ Weather                 → Add weather data                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ WORK GROUP (CONTRACTOR) TRACKING ────────────────────────────────────────┐
+│                                                                             │
+│ ASSIGN WORK GROUPS:                                                        │
+│   Admin → 📊 Budget → Click "Work Group" column → Type contractor name   │
+│                                                                             │
+│ VIEW BY CONTRACTOR:                                                        │
+│   📅 Gantt Chart shows: "Contractor Name - Purpose Name"                 │
+│   Summary table includes "Work Group" column                             │
+│                                                                             │
+│ EXAMPLE:                                                                   │
+│   "Contractor A - RC Definition"   [====PLAN====]                        │
+│   "Contractor B - RC Definition"        [====PLAN====]                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─ TIPS FOR SUCCESS ────────────────────────────────────────────────────────┐
+│                                                                             │
+│ 1. Import Gantt early — Even rough dates beat default dates              │
+│ 2. Set accurate rates — Wrong rates = wrong cost tracking                 │
+│ 3. Use consistent naming — "HOLE-001" everywhere, not "hole-001"         │
+│ 4. Check dashboard weekly — Don't wait for problems to surface           │
+│ 5. Export monthly reports — Keep historical snapshots for audit          │
+│ 6. Document edits — Note any manual corrections you make                 │
+│ 7. Use work groups — Tracks accountability by contractor                 │
+│ 8. Assign all holes to purposes — No orphaned drilling data             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+FOR MORE INFORMATION:
+  📖 Full Team Briefing: BRIEFING.html (open in any web browser)
+  📋 Complete Guide: TEAM_BRIEFING.md (30+ FAQs included)
+  📖 Launcher: Double-click 📖_OPEN_TEAM_BRIEFING.bat
+
+LAST UPDATED: April 2026 | Version 1.0

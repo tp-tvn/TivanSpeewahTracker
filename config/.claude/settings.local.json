@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m py_compile \"H:/My Drive/Claude Projects/Drill Tracker/db.py\")",
+      "Bash(python -m py_compile \"H:/My Drive/Claude Projects/Drill Tracker/app.py\")",
+      "Bash(python3)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(python -c \"import db; db.init_db\\(\\); import hashlib; print\\(hashlib.sha256\\(b'admin'\\).hexdigest\\(\\)\\)\")",
+      "Bash(python -c \"import sqlite3; conn = sqlite3.connect\\('tivan.db'\\); conn.row_factory = sqlite3.Row; row = conn.execute\\(\\\\\"SELECT value FROM settings WHERE key='admin_password'\\\\\"\\).fetchone\\(\\); print\\(f'Stored hash: {row[0] if row else \\\\\"NOT FOUND\\\\\"}'\\)\")",
+      "Bash(python)",
+      "Read(//h/My Drive/Claude Projects/Drill Tracker/**)",
+      "Bash(sqlite3 drill_costs.db \"SELECT DISTINCT purpose FROM hole_purposes ORDER BY purpose;\")",
+      "Bash(python3 -c ':*)",
+      "Bash(python -m py_compile app.py)",
+      "Bash(python -c \"import pandas; import openpyxl; print\\('All imports available'\\)\")",
+      "Bash(python -m py_compile app.py db.py)",
+      "Bash(ls -lh *.md)",
+      "Bash(python -m py_compile app.py db.py admin.py)",
+      "Bash(ls -lh *.bat)",
+      "Bash(ls -1 *.bat)",
+      "Bash(python -m py_compile db.py)",
+      "Bash(python -m py_compile db.py app.py)",
+      "Bash(python admin.py --help)",
+      "Bash(grep -oP '\\(?<=,\\)[^,]+\\(?=,[0-9]*\\\\.[0-9]*|$\\)')",
+      "Bash(sqlite3 \"H:\\\\My Drive\\\\Claude Projects\\\\Drill Tracker\\\\drill_costs.db\" \"SELECT DISTINCT category FROM time_breakdown ORDER BY category LIMIT 30;\")",
+      "Bash(mkdir -p \"H:/My Drive/Claude Projects/Tivan Tracker Packager\")",
+      "Read(//h/My Drive/Claude Projects/**)"
+    ]
+  }
+}

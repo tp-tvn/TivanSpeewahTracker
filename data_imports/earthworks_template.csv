@@ -1,0 +1,6 @@
+date,contractor,equipment,mobilised,demobilised,active_hours,standdown_hours,unavailable_hours,accommodation,pads_completed,pad_ids,notes
+2026-05-01,MDM,D9 Dozer,0,0,8.5,0,0,220,2,PAD-001|PAD-002,Road grading south section
+2026-05-01,MDM,16H Grader,0,0,7.0,1.0,0,220,0,,Wet ground - standdown 1hr
+2026-05-01,MDM,Service Truck,0,0,0,0,0,0,0,,Not on site
+2026-05-02,MDM,D9 Dozer,0,0,9.0,0,0,220,1,PAD-003,
+2026-05-02,MDM,16H Grader,0,0,9.0,0,0,220,0,,

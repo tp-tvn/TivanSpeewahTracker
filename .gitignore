@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml
+
+# Database files (regenerated at runtime)
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Cache
+.cache/
+*.cache
+
+# Logs
+*.log
+
+# PLOD/data files (except templates)
+data/tmp_import/
+data/August/
+config/.weather_cache/
+
+# Environment variables
+.env
+.env.local

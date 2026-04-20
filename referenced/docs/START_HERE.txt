@@ -1,0 +1,138 @@
+================================================================================
+                     TIVAN DASHBOARD — START HERE
+================================================================================
+
+Welcome to the Tivan Dashboard documentation package!
+
+This folder contains everything your team needs to understand and use the
+drill tracker tool.
+
+================================================================================
+                          📖 AVAILABLE RESOURCES
+================================================================================
+
+1. 📖_OPEN_TEAM_BRIEFING.bat  ← DOUBLE-CLICK THIS TO GET STARTED
+   ├─ What it does: Opens the team briefing in your web browser
+   ├─ Best for: Quick overview, training, reference
+   ├─ Format: Interactive HTML (click links, search, print)
+   └─ No installation needed!
+
+2. BRIEFING.html
+   ├─ What it is: Formatted version of the team briefing
+   ├─ Open with: Any web browser
+   ├─ Features: Styled navigation, tables, code samples
+   └─ Can be saved/printed as PDF
+
+3. TEAM_BRIEFING.md
+   ├─ What it is: Full documentation in Markdown format
+   ├─ Open with: Any text editor or GitHub
+   ├─ Best for: Developers, technical users
+   └─ Contains complete guide + FAQs + pro tips
+
+================================================================================
+                          ⚡ QUICK START (30 seconds)
+================================================================================
+
+1. Double-click: 📖_OPEN_TEAM_BRIEFING.bat
+2. Your browser opens with the briefing
+3. Use the navigation menu to jump to sections:
+   • Executive Summary — What is this tool?
+   • Quick Start Guide — How to set it up
+   • Daily Monitoring — How to use it
+   • FAQs — Answers to common questions
+   • Pro Tips — Best practices
+
+================================================================================
+                          📋 WHAT'S COVERED
+================================================================================
+
+✓ Executive summary of tool capabilities
+✓ 7 core features explained
+✓ Step-by-step setup guide
+✓ Daily operations walkthrough
+✓ Budget monitoring tutorial
+✓ Timeline (Gantt) tracking guide
+✓ 30+ FAQs with answers
+✓ Training scenarios
+✓ Pro tips & best practices
+✓ Troubleshooting guide
+✓ Contact information
+
+================================================================================
+                          🎯 BY ROLE — WHAT TO READ
+================================================================================
+
+PROJECT MANAGERS:
+  → Read: Executive Summary + Daily Monitoring + Timeline Tracking
+  → Why: Understand budget vs actual and schedule health
+  → Time: 10 minutes
+
+DRILLING SUPERVISORS:
+  → Read: Quick Start + Daily Operations + Data Explorer section
+  → Why: Learn how to import PLODs and monitor progress
+  → Time: 15 minutes
+
+FINANCIAL ANALYSTS:
+  → Read: Core Capabilities + Budget vs Actual + Financial Analytics
+  → Why: Understand cost tracking and forecasting
+  → Time: 20 minutes
+
+SYSTEM ADMINISTRATORS:
+  → Read: Entire document + Admin Features section
+  → Why: Full understanding of setup, configuration, and troubleshooting
+  → Time: 30 minutes
+
+FIRST-TIME USERS:
+  → Read: Quick Start Guide → then Daily Monitoring
+  → Why: Get hands-on immediately
+  → Time: 20 minutes
+
+================================================================================
+                          💾 HOW TO USE THESE FILES
+================================================================================
+
+ONLINE (Recommended):
+  • Double-click 📖_OPEN_TEAM_BRIEFING.bat
+  • Browser opens BRIEFING.html automatically
+  • Use navigation menu to jump sections
+  • Bookmark for future reference
+
+OFFLINE:
+  • Download BRIEFING.html to your computer
+  • Open in any web browser (no internet needed)
+  • Works on Windows, Mac, Linux, tablets, phones
+
+PRINT / SHARE:
+  • Open BRIEFING.html in browser
+  • File → Print → "Save as PDF"
+  • Or email the HTML file directly to team members
+  • Markdown version (TEAM_BRIEFING.md) is also shareable
+
+SEARCH:
+  • Browser Find (Ctrl+F or Cmd+F) to search any term
+  • Try: "budget", "PLOD", "variance", etc.
+
+================================================================================
+                          ❓ QUESTIONS?
+================================================================================
+
+If you can't find what you're looking for:
+
+1. Use browser Find (Ctrl+F) to search the briefing
+2. Check the Table of Contents (Quick Navigation menu)
+3. Look in the FAQs section — it has 30+ common questions
+4. Check Pro Tips for best practices
+5. See Support & Contact section for your team's help resources
+
+================================================================================
+                          📅 LAST UPDATED
+================================================================================
+
+Version: 1.0 (Full Feature Set)
+Date: April 2026
+
+================================================================================
+
+Ready? Double-click 📖_OPEN_TEAM_BRIEFING.bat to begin!
+
+================================================================================

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tivan Dashboard — Team Briefing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1a3a52;
+            border-bottom: 4px solid #2e90ca;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #2e90ca;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            border-left: 4px solid #2e90ca;
+            padding-left: 15px;
+        }
+
+        h3 {
+            color: #1a3a52;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .subtitle {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .summary-box {
+            background: #e8f4f8;
+            border-left: 5px solid #2e90ca;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .summary-box strong {
+            color: #1a3a52;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th {
+            background: #2e90ca;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        tr:hover {
+            background: #f0f0f0;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #c7254e;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #2e90ca;
+        }
+
+        pre code {
+            color: #333;
+            background: none;
+            padding: 0;
+        }
+
+        .nav {
+            background: #1a3a52;
+            color: white;
+            padding: 15px 40px;
+            margin: -40px -40px 30px -40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .nav h1 {
+            color: white;
+            border: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.4em;
+        }
+
+        .section-marker {
+            display: inline-block;
+            background: #2e90ca;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-weight: 600;
+            font-size: 0.85em;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #856404;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #155724;
+        }
+
+        .info {
+            background: #d1ecf1;
+            border-left: 5px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #0c5460;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .toc {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #2e90ca;
+        }
+
+        .toc ul {
+            columns: 2;
+            margin: 10px 0;
+        }
+
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .nav { position: static; }
+            .toc { display: none; }
+        }
+
+        .emoji { font-size: 1.2em; margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <h1>⛏ Tivan Dashboard — Team Briefing</h1>
+</div>
+
+<div class="container">
+
+    <p class="subtitle">Comprehensive Guide to the Drill Tracker Tool</p>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+        <h3>📚 Quick Navigation</h3>
+        <ul>
+            <li><a href="#summary">Executive Summary</a></li>
+            <li><a href="#capabilities">Core Capabilities</a></li>
+            <li><a href="#qrg">Quick Start Guide</a></li>
+            <li><a href="#monitoring">Daily Monitoring</a></li>
+            <li><a href="#gantt">Timeline Tracking</a></li>
+            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#tips">Pro Tips</a></li>
+        </ul>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <h2 id="summary"><span class="emoji">📋</span>Executive Summary</h2>
+
+    <p><strong>Tivan Dashboard</strong> is a Streamlit-based activity tracking and cost management system for drilling projects. It integrates daily drilling operations (PLODs) with project budgets, timelines, and financial reporting to give real-time visibility into project health.</p>
+
+    <div class="summary-box">
+        <strong>At a Glance</strong>
+        <ul style="margin: 10px 0;">
+            <li><strong>Purpose</strong>: Track drilling activities, manage budgets, forecast costs, and monitor schedule performance</li>
+            <li><strong>Users</strong>: Project managers, drilling supervisors, financial analysts, site coordinators</li>
+            <li><strong>Key Data</strong>: PLODs (daily drilling reports), budget allocations, hole purposes, cost rates</li>
+            <li><strong>Main Outputs</strong>: Budget vs Actual reports, Gantt timelines, activity summaries, cost forecasts</li>
+        </ul>
+    </div>
+
+    <!-- CORE CAPABILITIES -->
+    <h2 id="capabilities"><span class="emoji">🎯</span>Core Capabilities</h2>
+
+    <h3>1. PLOD Ingestion & Validation</h3>
+    <p>Import daily drilling reports (PLODs) from PDF or manual entry. The system extracts hole names, depths, drilling intervals, and equipment used. It validates data against known holes, flags anomalies, calculates costs automatically based on configured rates, and stores drilling intervals for historical analysis.</p>
+
+    <h3>2. Budget Planning & Gantt Integration</h3>
+    <p>Connect your project schedule to drilling budgets by importing Gantt charts as CSV/Excel, mapping Gantt items to drilling purposes, and setting budget amounts and date ranges. The system supports multiple phases per purpose (different contractors) and allows work group assignment to each budget period.</p>
+
+    <h3>3. Budget vs Actual Reporting</h3>
+    <p>Compare planned vs actual spending in real time. Track metres drilled vs planned metres, actual cost vs budgeted amount (calculated from PLOD data), cost per metre trending, and get variance alerts when overspending or ahead of schedule. Filter by purpose, rig, or date range.</p>
+
+    <h3>4. Timeline Analysis (Gantt Charts)</h3>
+    <p>Visualize planned vs actual project timelines with horizontal bar charts showing planned vs actual drilling dates. Identify schedule delays and early finishes, track progress by purpose or work group, and see which phases overlap.</p>
+
+    <h3>5. Historical Analysis & Data Explorer</h3>
+    <p>Dive deep into drilling data by searching PLODs by hole name, purpose, date, or rig. View drilling interval details, compare performance across holes and rigs, and identify patterns.</p>
+
+    <h3>6. Financial Analytics</h3>
+    <p>Understand costs and forecasts including cost per metre by drilling type, equipment and consumable expense tracking, labour allocation, cash flow forecasts, and variance analysis.</p>
+
+    <h3>7. Admin Features (Password Protected)</h3>
+    <p>Configure your system with password-protected admin panel: set drillhole purposes, manage budget rates, import/edit Gantt charts, assign work groups, configure rigs, set weather data, and correct OCR errors.</p>
+
+    <!-- QUICK START GUIDE -->
+    <h2 id="qrg"><span class="emoji">🚀</span>Quick Start Guide (QRG)</h2>
+
+    <h3>First Run: One-Time Setup</h3>
+
+    <h4>Step 1: Define Your Drilling Purposes</h4>
+    <p><strong>Location</strong>: Admin Panel → 🎯 Drillhole Purposes</p>
+    <ol>
+        <li>Click <strong>"🔒 Admin"</strong> in top right, enter admin password</li>
+        <li>Click <strong>"🎯 Drillhole Purposes"</strong> tab</li>
+        <li><strong>Import CSV</strong>: Prepare CSV with 2 columns (Hole Name, Purpose) → Click Upload → Import</li>
+        <li><strong>Or Manual Entry</strong>: Scroll to bottom and click table cells to add/edit</li>
+    </ol>
+
+    <h4>Step 2: Set Budget Rates</h4>
+    <p><strong>Location</strong>: Admin → 💰 Rate Management</p>
+    <ol>
+        <li>Set cost rates for each drill type + hole type combo</li>
+        <li>Example: RC drilling × RCRD holes = $150/metre</li>
+        <li>Mark "N/A" for combinations you don't use</li>
+        <li>Save</li>
+    </ol>
+
+    <h4>Step 3: Configure Your Rigs</h4>
+    <p><strong>Location</strong>: Admin → 🔩 Rigs</p>
+    <ol>
+        <li>Add rig names (e.g., "RC-001", "Diamond Rig A")</li>
+        <li>Set default drill type and hourly rates</li>
+    </ol>
+
+    <h4>Step 4: Import Your Gantt Chart (Budget Planning)</h4>
+    <p><strong>Location</strong>: Admin → 📊 Budget Targets</p>
+    <ol>
+        <li>Export your project Gantt chart as CSV or Excel</li>
+        <li>Scroll to "📊 Import from Gantt Chart"</li>
+        <li>Upload file and map Gantt items to purposes</li>
+        <li>Assign Work Groups (contractor names)</li>
+        <li>Click <strong>"Import Gantt Chart Allocations"</strong></li>
+    </ol>
+
+    <h3>Daily Operations: Importing PLODs</h3>
+
+    <h4>Import a PLOD</h4>
+    <p><strong>Location</strong>: Main Dashboard → "Import PLOD"</p>
+
+    <div class="info">
+        <strong>Method 1: Upload PDF</strong><br>
+        Click "Import PLOD" → Select PDF file → Review extracted data → Click "Save PLOD"
+    </div>
+
+    <div class="info">
+        <strong>Method 2: Manual Entry</strong><br>
+        Click "Import PLOD" → "Manual Entry" → Fill in form with date, rig, hole name, drilling intervals → Save
+    </div>
+
+    <!-- DAILY MONITORING -->
+    <h2 id="monitoring"><span class="emoji">📊</span>Daily Monitoring: Budget vs Actual</h2>
+
+    <p><strong>Location</strong>: Main Dashboard → "📊 Budget vs Actual"</p>
+
+    <p>This is your <strong>one-page health check</strong>. Key columns:</p>
+
+    <table>
+        <tr>
+            <th>Column</th>
+            <th>What It Means</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td><strong>Status</strong></td>
+            <td>🟢 On Track / 🟡 Warning / 🔴 Risk</td>
+            <td>Monitor if warning/risk</td>
+        </tr>
+        <tr>
+            <td><strong>Actual Metres</strong></td>
+            <td>Total metres drilled so far</td>
+            <td>Compare to Planned</td>
+        </tr>
+        <tr>
+            <td><strong>Actual Cost</strong></td>
+            <td>Money spent so far</td>
+            <td>Compare to Budget</td>
+        </tr>
+        <tr>
+            <td><strong>Variance</strong></td>
+            <td>Difference from plan (%, $)</td>
+            <td>&lt; 0% = under budget ✓</td>
+        </tr>
+        <tr>
+            <td><strong>Cost/Metre</strong></td>
+            <td>Actual cost per metre drilled</td>
+            <td>Track efficiency</td>
+        </tr>
+    </table>
+
+    <h3>Interpreting Status</h3>
+    <ul>
+        <li><strong>🟢 Green</strong> (On Track): Within 10% of budget</li>
+        <li><strong>🟡 Yellow</strong> (Warning): Approaching limit or running behind schedule</li>
+        <li><strong>🔴 Red</strong> (Risk): Over budget or significantly behind schedule</li>
+    </ul>
+
+    <div class="warning">
+        <strong>If you see red</strong>: Click the purpose to view details → Check recent PLODs → Review actual rates vs configured rates → Escalate if overspend is expected
+    </div>
+
+    <!-- TIMELINE TRACKING -->
+    <h2 id="gantt"><span class="emoji">📅</span>Schedule Tracking: Gantt Chart Tab</h2>
+
+    <p><strong>Location</strong>: Main Dashboard → "📅 Gantt Chart"</p>
+
+    <p>This shows a visual comparison of planned vs actual project timelines:</p>
+    <ul>
+        <li><strong>Blue bars</strong> = Planned timeline (from your Gantt import)</li>
+        <li><strong>Green bars</strong> = Actual drilling (from PLOD data)</li>
+    </ul>
+
+    <h3>What to Look For</h3>
+    <ul>
+        <li>✓ Green starts near blue = On schedule</li>
+        <li>⚠️ Green starts after blue = Running late</li>
+        <li>⚠️ Green much shorter than blue = Finished early</li>
+        <li>? No green bar = Not yet started</li>
+    </ul>
+
+    <!-- FAQs -->
+    <h2 id="faq"><span class="emoji">❓</span>Frequently Asked Questions</h2>
+
+    <h3>Setup & Configuration</h3>
+
+    <h4>Q: How do I know if my Gantt import worked?</h4>
+    <p><strong>A:</strong> Go to Admin → 📊 Budget Targets → scroll down to "Purpose Budget Allocations" table. You should see new rows with dates, budgets, and work groups.</p>
+
+    <h4>Q: Can I have multiple budget periods for the same purpose?</h4>
+    <p><strong>A:</strong> Yes! Example: "2026 RC" from Jan-Mar (Contractor A), then Apr-Jun (Contractor B). Each period is a separate row in the budget allocations table.</p>
+
+    <h4>Q: Can I edit a PLOD after importing it?</h4>
+    <p><strong>A:</strong> Go to Admin → 🗑️ Delete PLODs, find your PLOD and delete it, then re-import with corrected data.</p>
+
+    <h3>Budget & Cost Reporting</h3>
+
+    <h4>Q: Why does my "Actual Cost" show $0 even though I imported PLODs?</h4>
+    <p><strong>A:</strong> Missing budget rate. Go to Admin → 💰 Rate Management → Budget Targets and check if the drill_type + hole_type combination has a rate. If blank, add a rate (e.g., $150/m).</p>
+
+    <h4>Q: How is the actual cost calculated?</h4>
+    <p><strong>A:</strong> <code>Actual Cost = Sum of (metres drilled × rate for that drill type)</code></p>
+
+    <h4>Q: When should I start worrying about overspend?</h4>
+    <p><strong>A:</strong></p>
+    <ul>
+        <li><strong>80% of budget</strong>: Start monitoring closely</li>
+        <li><strong>90% of budget</strong>: Escalate to project manager</li>
+        <li><strong>100% of budget</strong>: Stop work until approved adjustment</li>
+    </ul>
+
+    <h3>Timeline & Gantt Chart</h3>
+
+    <h4>Q: Why doesn't my Gantt chart show any actual drilling data?</h4>
+    <p><strong>A:</strong> No PLODs have been imported yet, or they're for different purposes. Check Budget vs Actual tab to confirm PLODs imported. Ensure hole names match hole_purposes table exactly.</p>
+
+    <h4>Q: Can I edit dates directly in the Gantt chart?</h4>
+    <p><strong>A:</strong> No. Edit in Admin → 📊 Budget → edit the start_date and end_date columns in the budget allocations table.</p>
+
+    <h3>Troubleshooting</h3>
+
+    <h4>Q: Dashboard is slow or won't load</h4>
+    <p><strong>A:</strong> Refresh the page (Ctrl+R) → Clear browser cache → Check if large PLOD import is running → Contact admin if persists</p>
+
+    <h4>Q: PLOD PDF import failed with "Unable to extract"</h4>
+    <p><strong>A:</strong> PDF might be image-only (no text layer). Use manual entry instead, or run PDF through OCR software first.</p>
+
+    <!-- PRO TIPS -->
+    <h2 id="tips"><span class="emoji">💡</span>Pro Tips</h2>
+
+    <ol>
+        <li><strong>Use work groups for accountability</strong>: Assign each contractor to their phases. Easy to track who's responsible.</li>
+        <li><strong>Import Gantt chart early</strong>: Even rough dates are better than defaults. Gantt becomes your schedule baseline.</li>
+        <li><strong>Set realistic budget rates</strong>: Consult with procurement/finance on $/metre before drilling starts.</li>
+        <li><strong>Check dashboard weekly</strong>: Budget vs Actual should be reviewed at least weekly. Catch variances early.</li>
+        <li><strong>Keep hole names consistent</strong>: Use exact spelling—"TIVAN-001" won't match "Tivan-001".</li>
+        <li><strong>Export monthly snapshots</strong>: Download tables as CSV at end of month for historical record.</li>
+        <li><strong>Use Data Explorer for detailed dives</strong>: Budget vs Actual gives summary; Data Explorer shows details.</li>
+        <li><strong>Document manual edits</strong>: If you override a budget or delete a PLOD, note it somewhere for audit purposes.</li>
+    </ol>
+
+    <!-- SUPPORT -->
+    <h2><span class="emoji">📞</span>Support & Contact</h2>
+
+    <ul>
+        <li><strong>General questions</strong>: Contact your project manager or drill site supervisor</li>
+        <li><strong>Admin issues</strong>: Contact your IT admin</li>
+        <li><strong>Feature requests or bugs</strong>: Use Admin → 💬 Feedback tab</li>
+        <li><strong>Database issues</strong>: Contact system administrator</li>
+    </ul>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p><strong>Tivan Dashboard — Team Briefing</strong></p>
+        <p>Last Updated: April 2026 | Version 1.0 (Full Feature Set)</p>
+        <p style="margin-top: 10px; font-size: 0.85em;">
+            <a href="#summary" style="color: #2e90ca; text-decoration: none;">↑ Back to Top</a>
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>

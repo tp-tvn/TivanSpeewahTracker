@@ -1,0 +1,193 @@
+═══════════════════════════════════════════════════════════════════════════════
+                          DRILL TRACKER - START HERE
+═══════════════════════════════════════════════════════════════════════════════
+
+👋 Welcome to Drill Tracker!
+
+This is your guide to understanding the folder structure and how to get started.
+
+═══════════════════════════════════════════════════════════════════════════════
+                              ⭐ THE QUICK PATH
+═══════════════════════════════════════════════════════════════════════════════
+
+TO OPEN THE DASHBOARD (in 30 seconds):
+  1. Find this file: 🚀_OPEN_DASHBOARD.bat
+  2. Double-click it
+  3. Dashboard opens in your browser
+  Done! ✓
+
+═══════════════════════════════════════════════════════════════════════════════
+                           📁 FOLDER AT A GLANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+Drill Tracker/
+│
+├─ 🚀_OPEN_DASHBOARD.bat          ← Double-click this to open the dashboard
+├─ QUICKSTART.md                  ← 5-minute quick start guide (read this next)
+├─ README.md                      ← Project overview (10-minute read)
+├─ INDEX.md                       ← File navigation guide (find anything)
+├─ OPEN_FULL_DOCUMENTATION.bat    ← Full documentation with all details
+│
+├─ app/                           ← Application source code
+│   └─ dashboard.bat              ← (Also runs the dashboard)
+│
+├─ data/                          ← Your databases and imported data
+│   ├─ drill_costs.db             ← Main database (all your data)
+│   ├─ August/                    ← Historical drill sheets
+│   └─ tmp_import/                ← Staging for new imports
+│
+├─ config/                        ← Settings and assets
+│   └─ logo.png                   ← Dashboard logo
+│
+├─ data_imports/                  ← Templates for importing data
+│   └─ earthworks_template.csv    ← Import format template
+│
+└─ referenced/docs/               ← Complete documentation library
+    ├─ TEAM_BRIEFING.md           ← Full guide with all details
+    ├─ BUDGET_WORKFLOW.md         ← Budget tracking guide
+    ├─ GANTT_*.md                 ← Timeline/scheduling guides
+    ├─ ACTIVITY_TYPE_*.md         ← Activity type guides
+    └─ [many other detailed docs]
+
+═══════════════════════════════════════════════════════════════════════════════
+                            🎯 WHAT YOU'LL FIND
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ Drill Cost Tracking
+   - Real-time cost monitoring
+   - Budget tracking
+   - Cost analysis
+
+✅ Timeline Management
+   - Gantt charts for projects
+   - Activity scheduling
+   - Timeline analysis
+
+✅ Activity Management
+   - Track different activity types
+   - Activity-based cost allocation
+   - Activity configurations
+
+✅ Work Group Organization
+   - Group drills by team
+   - Team-level reporting
+   - Multi-team projects
+
+✅ Admin Dashboard
+   - Manage drill projects
+   - Import drill sheets
+   - Database maintenance
+
+═══════════════════════════════════════════════════════════════════════════════
+                          🚀 YOUR NEXT THREE STEPS
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Open the Dashboard (Next 30 seconds)
+   ──────────────────────────────────────────
+   → Double-click: 🚀_OPEN_DASHBOARD.bat
+   → Browser automatically opens to http://localhost:8501
+   → Click through the tabs to explore
+
+STEP 2: Read the Quick Start (Next 5 minutes)
+   ─────────────────────────────────────
+   → Open: QUICKSTART.md (in any text editor)
+   → Understand the key features
+   → Learn where files are located
+
+STEP 3: Check the Full Documentation (When ready)
+   ──────────────────────────────────────────
+   → Double-click: OPEN_FULL_DOCUMENTATION.bat
+   → Opens the complete guide in your browser
+   → Bookmark it for future reference
+
+STEP 3: Check the Full Documentation (When ready)
+   ──────────────────────────────────────────
+   → Double-click: OPEN_FULL_DOCUMENTATION.bat
+   → Opens the complete guide in your browser
+   → Bookmark it for future reference
+
+═══════════════════════════════════════════════════════════════════════════════
+                        💡 HELPFUL TIPS FOR FIRST TIME
+═══════════════════════════════════════════════════════════════════════════════
+
+📌 KEEP THE TERMINAL OPEN
+   While the dashboard is running, keep the terminal window open.
+   The window will show you what the dashboard is doing.
+   Close the window (or Ctrl+C) to stop the dashboard.
+
+📌 BOOKMARK THE DASHBOARD
+   After the dashboard opens, bookmark http://localhost:8501 in your browser
+   to quickly access it in the future.
+
+📌 YOUR DATA IS SAFE
+   - All your data is in: data/drill_costs.db
+   - Automatic backups are created: data/drill_costs.db.backup_*
+   - You can safely copy the database file for backup
+
+📌 FIND ANYTHING WITH INDEX.md
+   If you ever can't find a file or feature:
+   → Open: INDEX.md
+   → Use Ctrl+F to search for what you need
+
+📌 GETTING HELP
+   - Quick answers: QUICKSTART.md
+   - Full documentation: 📖_OPEN_TEAM_BRIEFING.bat
+   - Specific features: referenced/docs/ folder
+   - Navigation: INDEX.md
+
+═══════════════════════════════════════════════════════════════════════════════
+                          ❓ COMMON QUESTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+Q: How do I open the dashboard?
+A: Double-click: 🚀_OPEN_DASHBOARD.bat
+
+Q: How do I stop the dashboard?
+A: Close the browser tab or press Ctrl+C in the terminal window.
+
+Q: How do I import drill data?
+A: 1) Place CSV files in data/tmp_import/
+   2) Open the dashboard
+   3) Use the Admin tab to import
+
+Q: Where is my data stored?
+A: All data is in: data/drill_costs.db (a SQLite database)
+
+Q: How do I backup my data?
+A: Copy data/drill_costs.db to a safe location.
+   Automatic backups are created in data/
+
+Q: I lost some data, can I recover it?
+A: Copy one of the backup files (data/drill_costs.db.backup_*)
+   and rename it to data/drill_costs.db
+
+Q: Can I edit the dashboard?
+A: Yes! The source code is in app/*.py files.
+   Changes require restarting the dashboard.
+
+Q: Does it work offline?
+A: Yes! The dashboard is completely offline.
+   No internet connection needed.
+
+═══════════════════════════════════════════════════════════════════════════════
+                             🚀 GET STARTED NOW!
+═══════════════════════════════════════════════════════════════════════════════
+
+Ready? Here's what to do RIGHT NOW:
+
+  1. Find: 🚀_OPEN_DASHBOARD.bat
+  2. Double-click it
+  3. Dashboard opens in browser
+  4. Explore the tabs!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+That's it! You're ready to go. 🎉
+
+If you get stuck, open QUICKSTART.md or INDEX.md for more help.
+
+═══════════════════════════════════════════════════════════════════════════════
+Version: 2.0 - Organized Package
+Last Updated: April 14, 2026
+Status: Ready to Use
+═══════════════════════════════════════════════════════════════════════════════

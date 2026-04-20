@@ -1,0 +1,6 @@
+id,name,short_name,rig_type,contract,rate_group,default_interval_type
+3,Rig 38,RIG 38,DD,Speewah Mining DDH1 Rig 38,DDH1 DD,PQ3
+2,Rig 41,RIG 41,DD,Speewah Mining DDH1 Rig 41,DDH1 DD,PQ3
+4,Rig 16 (HYD),RIG 16 (HYD),HYD,Speewah Mining Hyd Rig 16,Hyd,HYD
+5,Rig 18 (HYD),RIG 18 (HYD),HYD,Speewah Mining Hyd Rig 18,Hyd,HYD
+1,Rig 18,RIG 18,RC,Speewah Mining Strike RC (start 1 June 2025),Strike RC,RC

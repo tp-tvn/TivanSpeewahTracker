@@ -1,0 +1,4 @@
+drill_type,budget_per_m
+RC,"{'RCRD': 100.0, 'DDGT': 100.0, 'DMET': 100.0, 'REXP': 100.0, 'STER': 100.0, 'RCAG': 100.0, 'DDRD': 100.0}"
+HQ3,"{'DDGT': 430.0, 'DMET': 430.0, 'DDRD': 430.0}"
+PQ3,{'DMET': 450.0}

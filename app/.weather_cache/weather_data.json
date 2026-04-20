@@ -1,0 +1,1586 @@
+{
+  "2025-03-21": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-03-22": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-03-23": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-03-24": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-03-25": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-03-26": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-03-27": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-03-28": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-03-29": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-03-30": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-03-31": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-04-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-03": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-04-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-05": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-04-06": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-04-07": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-04-08": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-12": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-04-13": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-04-14": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-15": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-16": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-17": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-18": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-04-19": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-04-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-24": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-26": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-29": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-04-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-08": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-12": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-13": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-05-14": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-15": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-05-16": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-17": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-05-18": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-05-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-24": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-26": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-05-27": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-05-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-29": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-05-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-05-31": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-08": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-06-09": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-06-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-12": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-13": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-14": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-15": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-06-16": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-17": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-18": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-20": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-06-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-24": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-06-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-26": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-29": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-06-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-08": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-12": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-13": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-14": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-15": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-16": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-17": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-18": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-24": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-26": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-29": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-07-31": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-01": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-02": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-03": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-04": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-07": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-08": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-09": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-10": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-11": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-12": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-13": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-14": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-15": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-16": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-17": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-08-18": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-24": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-26": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-29": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-08-31": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-08": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-10": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-09-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-12": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-13": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-14": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-15": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-09-16": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-09-17": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-18": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-22": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-09-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-24": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-26": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-09-29": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-09-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-08": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-10": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-11": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-10-12": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-13": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-14": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-10-15": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-10-16": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-17": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-18": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-22": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-24": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-25": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-26": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2025-10-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-29": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-10-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-10-31": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-01": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-11-02": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-07": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-11-08": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-09": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-11": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-11-12": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-11-13": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-11-14": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-11-15": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-11-16": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-17": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-18": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-24": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-11-25": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-11-26": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-11-27": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-11-28": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-11-29": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-11-30": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-12-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-04": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-06": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-08": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-12-09": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-11": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-12": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-13": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-12-14": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-15": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-12-16": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-17": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-18": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-19": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-20": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-21": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-22": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-23": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-24": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-25": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2025-12-26": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2025-12-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2025-12-29": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-12-30": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2025-12-31": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-01-01": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-02": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-04": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-05": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-01-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-08": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-09": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-10": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-01-11": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-12": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-13": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-14": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-15": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-16": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-17": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-18": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-19": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-20": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-21": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-22": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-01-23": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-24": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-25": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-26": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-27": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-01-28": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-01-29": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-01-30": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-01-31": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-01": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-02-02": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-03": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-04": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-05": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-06": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-07": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-08": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-09": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-10": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-02-12": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-02-13": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-14": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-02-15": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-16": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-17": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-18": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-02-19": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-20": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-21": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-22": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-02-23": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-02-24": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-25": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-02-26": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-02-27": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-02-28": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-01": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-02": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-03": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-04": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-05": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-06": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-03-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-08": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-03-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-11": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-12": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-13": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-14": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-15": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-16": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-17": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-03-18": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-19": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-20": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-21": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-22": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-03-23": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-24": {
+    "event_type": "rain",
+    "severity": "heavy"
+  },
+  "2026-03-25": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-03-26": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-03-27": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-28": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-29": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-30": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-03-31": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-01": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-02": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-03": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-04": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2026-04-05": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-06": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-07": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-08": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-09": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-10": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-11": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-12": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-13": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2026-04-14": {
+    "event_type": "sunny",
+    "severity": null
+  },
+  "2026-04-15": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-16": {
+    "event_type": "cloudy",
+    "severity": null
+  },
+  "2026-04-17": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-04-18": {
+    "event_type": "rain",
+    "severity": "light"
+  },
+  "2026-04-19": {
+    "event_type": "rain",
+    "severity": "moderate"
+  },
+  "2026-04-20": {
+    "event_type": "rain",
+    "severity": "light"
+  }
+}
