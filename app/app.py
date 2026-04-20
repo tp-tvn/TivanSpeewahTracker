@@ -65,7 +65,7 @@ rigs      = db.get_rigs()
 rig_opts  = {"All rigs": None} | {r["short_name"]: r["id"] for r in rigs}
 
 if "admin_authenticated" not in st.session_state:
-    st.session_state.admin_authenticated = False
+    st.session_state.admin_authenticated = (current_branch == "develop")
 if "dark_mode" not in st.session_state:
     st.session_state.dark_mode = False
 
@@ -304,7 +304,10 @@ with hdr_right:
     st.write("")
     if st.session_state.admin_authenticated:
         with st.popover("🔓 Admin", use_container_width=True):
-            st.caption("Admin mode is active.")
+            if current_branch == "develop":
+                st.caption("Admin mode (auto-enabled in staging)")
+            else:
+                st.caption("Admin mode is active.")
             if st.button("Lock", key="admin_lock", use_container_width=True):
                 st.session_state.admin_authenticated = False
                 st.rerun()
