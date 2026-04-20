@@ -17,11 +17,6 @@ def init_db():
     conn = get_conn()
     c = conn.cursor()
 
-    # Track if this is a fresh database
-    tables_exist = c.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='rigs'"
-    ).fetchone() is not None
-
     c.executescript("""
     CREATE TABLE IF NOT EXISTS rigs (
         id                   INTEGER PRIMARY KEY,
@@ -135,12 +130,14 @@ def init_db():
     _seed_rigs_and_rates(conn)
     _dedup_rates(conn)
 
-    # If database is fresh, try to restore from CSV backups
-    if not tables_exist:
+    # If no rates exist (fresh database or reset), restore from CSV backups
+    rate_count = c.execute("SELECT COUNT(*) FROM rates").fetchone()[0]
+    if rate_count == 0:
+        conn.close()
         import_rates_csv()
         import_budget_targets_csv()
-
-    conn.close()
+    else:
+        conn.close()
 
 
 def _migrate(conn):
