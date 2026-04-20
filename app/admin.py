@@ -27,8 +27,32 @@ st.markdown("""
     padding-top:   1rem   !important;
     max-width:     100%   !important;
 }
+.staging-banner {
+    background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
 </style>
 """, unsafe_allow_html=True)
+
+import subprocess
+try:
+    current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
+                                           cwd='app', stderr=subprocess.DEVNULL).decode().strip()
+except:
+    current_branch = "unknown"
+
+if current_branch == "develop":
+    st.markdown("""
+    <div class="staging-banner">
+        🚀 STAGING/DEVELOPER ENVIRONMENT - Changes test here before production
+    </div>
+    """, unsafe_allow_html=True)
 
 db.init_db()
 
@@ -396,7 +420,65 @@ with st.container(border=True):
     with adm_branding:
         st.info("Branding settings (not included in admin panel)")
     with adm_settings:
-        st.info("Settings (not included in admin panel)")
+        st.markdown("#### ⚙️ Settings & Deployment")
+
+        if current_branch == "develop":
+            st.divider()
+            st.markdown("**🚀 Deploy to Production**")
+            st.caption("Merge changes from staging (develop) to production (main)")
+
+            try:
+                git_status = subprocess.check_output(['git', 'status', '--porcelain'],
+                                                     cwd='app', stderr=subprocess.DEVNULL).decode().strip()
+                git_log = subprocess.check_output(['git', 'log', '--oneline', 'develop..main', '-n', '5'],
+                                                 cwd='app', stderr=subprocess.DEVNULL).decode().strip()
+
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.subheader("Current Status")
+                    if git_status:
+                        st.warning(f"⚠️ **{len(git_status.splitlines())} uncommitted changes**")
+                        with st.expander("View changes"):
+                            st.code(git_status)
+                    else:
+                        st.success("✅ All changes committed")
+
+                with col2:
+                    st.subheader("Commits Ahead")
+                    if git_log:
+                        commit_count = len(git_log.splitlines())
+                        st.info(f"🔄 **{commit_count} commit(s)** ready to push")
+                        with st.expander("View commits"):
+                            st.code(git_log)
+                    else:
+                        st.info("📦 No new commits (in sync with production)")
+
+                st.divider()
+                st.markdown("**One-click deployment:**")
+                col_deploy, col_status = st.columns([2, 1])
+                with col_deploy:
+                    if st.button("🚀 DEPLOY TO PRODUCTION", use_container_width=True, type="primary"):
+                        try:
+                            # Stage all changes
+                            subprocess.run(['git', 'add', '-A'], cwd='app', check=True, capture_output=True)
+                            # Commit if there are changes
+                            git_status_check = subprocess.check_output(['git', 'status', '--porcelain'],
+                                                                      cwd='app').decode().strip()
+                            if git_status_check:
+                                subprocess.run(['git', 'commit', '-m', 'Staging deployment - auto-commit'],
+                                             cwd='app', check=True, capture_output=True)
+                            # Push develop to main
+                            subprocess.run(['git', 'push', 'origin', 'develop:main'],
+                                         cwd='app', check=True, capture_output=True)
+                            st.success("✅ Deployed! Production will update in 30-60 seconds.")
+                            st.balloons()
+                        except subprocess.CalledProcessError as e:
+                            st.error(f"❌ Deployment failed: {e}")
+
+            except subprocess.CalledProcessError:
+                st.warning("⚠️ Could not read git status. Ensure you're in a git repository.")
+        else:
+            st.success("✅ You're on PRODUCTION (main branch) - all changes are live")
     with adm_delete:
         st.info("Delete functions (not included in admin panel)")
     with adm_ew_rates:

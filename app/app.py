@@ -32,8 +32,32 @@ st.markdown("""
     padding-top:   3.5rem !important;
     max-width:     100%   !important;
 }
+.staging-banner {
+    background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
 </style>
 """, unsafe_allow_html=True)
+
+import subprocess
+try:
+    current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'],
+                                           cwd='app', stderr=subprocess.DEVNULL).decode().strip()
+except:
+    current_branch = "unknown"
+
+if current_branch == "develop":
+    st.markdown("""
+    <div class="staging-banner">
+        🚀 STAGING/DEVELOPER ENVIRONMENT - Changes test here before production
+    </div>
+    """, unsafe_allow_html=True)
 
 db.init_db()
 
