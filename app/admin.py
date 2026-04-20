@@ -549,6 +549,7 @@ with st.container(border=True):
                             rate_id = next((r['id'] for r in rates if r['label'] == rate_label), None)
                             if rate_id:
                                 db.update_rate(rate_id, new_rate)
+                                db.export_rates_csv()
                                 st.success(f"✅ Updated {rate_label} to {new_rate}")
                                 st.rerun()
                 else:
@@ -587,6 +588,7 @@ with st.container(border=True):
                 budget_mapping[drill_type] = row["Budget ($/m)"]
 
             db.set_budget_targets(budget_mapping)
+            db.export_budget_targets_csv()
             st.success("✅ Budget targets saved")
             st.rerun()
     with adm_rigs:

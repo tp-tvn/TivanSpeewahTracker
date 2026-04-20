@@ -1,1 +1,14 @@
-rig_id,rig_name,category,label,rate,unit,effective_date
+Rig,Category,Label,Rate,Unit,Effective Date
+Rig 18,accommodation,Crew Accommodation and Messing,130.0,$/person/day,2026-04-20
+Rig 18,active_rate,Active Rate,575.0,$/hr,2026-04-20
+Rig 18,auxiliary_compressor,Auxiliary Compressor,110.0,$/hr,2026-04-20
+Rig 18,azi_aligner,Azi Aligner,175.0,$/day,2026-04-20
+Rig 18,booster,Booster,110.0,$/hr,2026-04-20
+Rig 18,drilling_0_50,RC Hammer 0-50m,40.0,$/m,2026-04-20
+Rig 18,drilling_100_150,RC Hammer 100-150m,50.0,$/m,2026-04-20
+Rig 18,drilling_150_200,RC Hammer 150-200m,55.0,$/m,2026-04-20
+Rig 18,drilling_200_250,RC Hammer 200-250m,60.0,$/m,2026-04-20
+Rig 18,drilling_250_300,RC Hammer 250-300m,65.0,$/m,2026-04-20
+Rig 18,drilling_50_100,RC Hammer 50-100m,45.0,$/m,2026-04-20
+Rig 18,non_active_rate,Non Active Rate,360.0,$/hr,2026-04-20
+Rig 18,water_fuel,Water/Fuel Cartage,150.0,$/hr,2026-04-20

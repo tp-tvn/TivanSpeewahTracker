@@ -17,6 +17,11 @@ def init_db():
     conn = get_conn()
     c = conn.cursor()
 
+    # Track if this is a fresh database
+    tables_exist = c.execute(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='rigs'"
+    ).fetchone() is not None
+
     c.executescript("""
     CREATE TABLE IF NOT EXISTS rigs (
         id                   INTEGER PRIMARY KEY,
@@ -129,6 +134,12 @@ def init_db():
     _migrate(conn)
     _seed_rigs_and_rates(conn)
     _dedup_rates(conn)
+
+    # If database is fresh, try to restore from CSV backups
+    if not tables_exist:
+        import_rates_csv()
+        import_budget_targets_csv()
+
     conn.close()
 
 
@@ -3039,3 +3050,103 @@ def get_gantt_timeline_data() -> list:
 
     conn.close()
     return rows
+
+
+# ---------------------------------------------------------------------------
+# CSV Backup/Restore for Parameters
+# ---------------------------------------------------------------------------
+
+def export_rates_csv(csv_path=None):
+    """Export all rates to CSV for version control backup."""
+    if csv_path is None:
+        csv_path = Path(__file__).parent.parent / "config" / "rates.csv"
+
+    with get_conn() as conn:
+        rows = conn.execute("""
+            SELECT r.name as rig, rt.category, rt.label, rt.rate, rt.unit, rt.effective_date
+            FROM rates rt
+            JOIN rigs r ON rt.rig_id = r.id
+            ORDER BY r.name, rt.category
+        """).fetchall()
+
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_path, 'w', newline='') as f:
+        import csv
+        writer = csv.writer(f)
+        writer.writerow(['Rig', 'Category', 'Label', 'Rate', 'Unit', 'Effective Date'])
+        for row in rows:
+            writer.writerow([row['rig'], row['category'], row['label'], row['rate'], row['unit'], row['effective_date']])
+
+
+def import_rates_csv(csv_path=None):
+    """Import rates from CSV backup, merging with existing data."""
+    if csv_path is None:
+        csv_path = Path(__file__).parent.parent / "config" / "rates.csv"
+
+    if not csv_path.exists():
+        return 0
+
+    import csv
+    with get_conn() as conn:
+        updated = 0
+        with open(csv_path, 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # Find rig by name
+                rig = conn.execute("SELECT id FROM rigs WHERE name = ?", (row['Rig'],)).fetchone()
+                if not rig:
+                    continue
+                rig_id = rig['id']
+
+                # Upsert rate
+                conn.execute("""
+                    INSERT INTO rates (rig_id, category, label, rate, unit, effective_date)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(rig_id, category, effective_date) DO UPDATE SET rate=excluded.rate, label=excluded.label, unit=excluded.unit
+                """, (rig_id, row['Category'], row['Label'], float(row['Rate']), row['Unit'], row['Effective Date']))
+                updated += 1
+        conn.commit()
+    return updated
+
+
+def export_budget_targets_csv(csv_path=None):
+    """Export budget targets to CSV for version control backup."""
+    if csv_path is None:
+        csv_path = Path(__file__).parent.parent / "config" / "budget_targets.csv"
+
+    with get_conn() as conn:
+        rows = conn.execute(
+            "SELECT drill_type, hole_type, budget_per_m FROM budget_targets ORDER BY drill_type, hole_type"
+        ).fetchall()
+
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_path, 'w', newline='') as f:
+        import csv
+        writer = csv.writer(f)
+        writer.writerow(['Drill Type', 'Hole Type', 'Budget ($/m)'])
+        for row in rows:
+            writer.writerow([row['drill_type'], row['hole_type'], row['budget_per_m']])
+
+
+def import_budget_targets_csv(csv_path=None):
+    """Import budget targets from CSV backup, merging with existing data."""
+    if csv_path is None:
+        csv_path = Path(__file__).parent.parent / "config" / "budget_targets.csv"
+
+    if not csv_path.exists():
+        return 0
+
+    import csv
+    with get_conn() as conn:
+        updated = 0
+        with open(csv_path, 'r') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                conn.execute("""
+                    INSERT INTO budget_targets (drill_type, hole_type, budget_per_m)
+                    VALUES (?, ?, ?)
+                    ON CONFLICT(drill_type, hole_type) DO UPDATE SET budget_per_m=excluded.budget_per_m
+                """, (row['Drill Type'], row['Hole Type'], float(row['Budget ($/m)'])))
+                updated += 1
+        conn.commit()
+    return updated
